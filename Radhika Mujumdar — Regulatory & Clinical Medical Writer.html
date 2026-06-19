@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radhika Mujumdar — Regulatory &amp; Clinical Medical Writer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A41;
+    --cream: #FAF8F3;
+    --clay: #B5634A;
+    --sage: #7A8B7F;
+    --ink: #2D2D2D;
+    --line: #DDD7C9;
+    --paper: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ===== HEADER / NAV ===== */
+  header {
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 28px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .nav-name {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    color: var(--navy);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  nav a:hover { color: var(--clay); }
+
+  @media (max-width: 600px) {
+    nav ul { gap: 16px; }
+    nav a { font-size: 0.78rem; }
+  }
+
+  /* ===== HERO — styled like a protocol title page ===== */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--navy);
+    max-width: 11ch;
+  }
+
+  .hero-tagline {
+    margin-top: 16px;
+    font-size: 1.18rem;
+    color: var(--ink);
+    max-width: 46ch;
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    color: #4a4a4a;
+  }
+
+  .hero-meta {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px 32px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+
+  .hero-meta dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sage);
+    margin-bottom: 4px;
+  }
+
+  .hero-meta dd {
+    font-size: 0.92rem;
+    color: var(--navy);
+  }
+
+  .hero-meta a.dd-link {
+    color: var(--clay);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+
+  /* ===== SECTION HEADERS — protocol-numbered ===== */
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--clay);
+    font-weight: 500;
+  }
+
+  .sec-head h2 {
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sec-intro {
+    margin: 14px 0 32px;
+    max-width: 60ch;
+    color: #4a4a4a;
+    font-size: 0.98rem;
+  }
+
+  /* ===== DOCUMENT CARDS ===== */
+  .doc {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+
+  .doc-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .doc-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--navy);
+    max-width: 56ch;
+  }
+
+  .doc-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 10px;
+    border: 1px solid var(--sage);
+    color: var(--sage);
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  .doc-tag.first-author {
+    border-color: var(--clay);
+    color: var(--clay);
+  }
+
+  .doc-body {
+    padding: 18px 24px 22px;
+  }
+
+  .doc-meta-row {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--sage);
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+  }
+
+  .doc-desc {
+    font-size: 0.94rem;
+    color: var(--ink);
+    margin-bottom: 14px;
+    max-width: 65ch;
+  }
+
+  .doc-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .doc-links a {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--navy);
+    padding-bottom: 1px;
+  }
+
+  .doc-links a:hover { color: var(--clay); border-color: var(--clay); }
+
+  .doc-note {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #F4F0E6;
+    border-left: 2px solid var(--sage);
+    font-size: 0.85rem;
+    color: #4a4a4a;
+  }
+
+  /* ===== ABOUT / NARRATIVE ===== */
+  .about-text {
+    max-width: 64ch;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+
+  .about-text p { margin-bottom: 16px; }
+
+  .about-text strong { color: var(--navy); }
+
+  /* ===== SKILLS GRID ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-top: 8px;
+  }
+
+  .skill-group dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    margin-bottom: 10px;
+  }
+
+  .skill-group dd {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 40px 0 56px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+    color: var(--sage);
+  }
+
+  footer a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ===== signature element: vertical timeline rule on About ===== */
+  .timeline {
+    margin-top: 36px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tl-item:last-child { border-bottom: none; }
+
+  .tl-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--clay);
+    padding-top: 2px;
+  }
+
+  .tl-content h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .tl-content p {
+    font-size: 0.88rem;
+    color: #4a4a4a;
+  }
+
+  @media (max-width: 600px) {
+    .tl-item { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-name">R. Mujumdar</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="hero-label">Portfolio — Document Version 1.0</div>
+    <h1>Radhika Mujumdar</h1>
+    <p class="hero-tagline">Aspiring Regulatory &amp; Clinical Medical Writer</p>
+
+    <dl class="hero-meta">
+      <div>
+        <dt>Background</dt>
+        <dd>M.S. Biomedical Engineering, SUNY Buffalo</dd>
+      </div>
+      <div>
+        <dt>Focus Areas</dt>
+        <dd>CSPs · CSRs · Evidence Synthesis</dd>
+      </div>
+      <div>
+        <dt>Email</dt>
+        <dd><a class="dd-link" href="mailto:radhika.mujumdar1993@gmail.com">radhika.mujumdar1993@gmail.com</a></dd>
+      </div>
+      <div>
+        <dt>LinkedIn</dt>
+        <dd><a class="dd-link" href="https://linkedin.com/in/radhikamujumdar" target="_blank">linkedin.com/in/radhikamujumdar</a></dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-text">
+      <p>I'm a biomedical engineer building a career in regulatory and clinical medical writing — translating complex scientific and clinical evidence into documentation that meets ICH-GCP standards and supports real regulatory decisions.</p>
+      <p>My background spans <strong>signal processing research, medical device validation, and structured scientific writing</strong>, including a first-authored conference paper, a clinical device white paper, and hands-on regulatory document training. I'm currently developing a Clinical Study Report (CSR) to deepen my independent regulatory writing practice.</p>
+      <p>I'm drawn to this field because it sits exactly where my strengths meet: rigorous technical understanding, and the discipline to write it clearly, accurately, and in the structure regulators and clinicians expect.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2025 — Present</div>
+        <div class="tl-content">
+          <h4>Regulatory Writing Intern, Athena Bio</h4>
+          <p>Structured training in CSP and CSR drafting, aligned with ICH-GCP guidelines.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2020 — 2021</div>
+        <div class="tl-content">
+          <h4>Trainee Scientific Writer, Cactus Communications</h4>
+          <p>Literature review and evidence synthesis for medical device CER evaluation.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2018 — 2019</div>
+        <div class="tl-content">
+          <h4>Biomedical Research Engineer, CareNX Innovations</h4>
+          <p>Designed multi-site hospital validation studies; co-authored technical white paper on fetal ECG extraction.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2015 — 2017</div>
+        <div class="tl-content">
+          <h4>M.S. Biomedical Engineering, University at Buffalo</h4>
+          <p>Signal processing research; first-authored published conference paper and poster.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGULATORY WRITING -->
+  <section id="writing">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Regulatory Writing Samples</h2>
+    </div>
+    <p class="sec-intro">Documents prepared as part of structured regulatory writing training, presented with transparent notes on authorship and process.</p>
+
+    <div class="doc">
+      <div class="doc-header">
+        <div class="doc-title">Clinical Study Protocol — Phase I Dose-Escalation Study (Oncology)</div>
+        <div class="doc-tag">AI-Assisted</div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-meta-row">PROTOCOL CDX-CLDN18.2-001 · VERSION 1.0 · MAR 2026</div>
+        <p class="doc-desc">A 54-page Phase I CSP for a fictional anti-CLDN18.2 monoclonal antibody in gastric/GEJ adenocarcinoma, following ICH E6(R2) and the TransCelerate Common Protocol Template, including full estimand framework per ICH E9(R1).</p>
+        <div class="doc-links">
+          <a href="#">View document →</a>
+        </div>
+        <div class="doc-note">Drafted with AI assistance as part of regulatory writing training; reviewed and directed by me. Shared here as a study artifact alongside an independently written CSR (in progress).</div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div class="doc-header">
+        <div class="doc-title">Clinical Study Report — SPOTLIGHT Trial Synopsis (In Progress)</div>
+        <div class="doc-tag first-author">Independently Written</div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-meta-row">ICH E3 FORMAT · GASTRIC/GEJ ADENOCARCINOMA</div>
+        <p class="doc-desc">A self-authored CSR built from the published SPOTLIGHT trial (zolbetuximab + mFOLFOX6), covering synopsis, efficacy and safety narrative, and conclusions — written independently to demonstrate regulatory writing structure and judgment.</p>
+        <div class="doc-links">
+          <a href="#">Coming soon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Publications &amp; White Papers</h2>
+    </div>
+    <p class="sec-intro">First-authored scientific writing from my biomedical engineering research.</p>
+
+    <div class="doc">
+      <div class="doc-header">
+        <div class="doc-title">Wearable Sensor for Multi-wavelength Near-Infrared Spectroscopy of Skin Hemodynamics Along with Underlying Muscle Electromyography</div>
+        <div class="doc-tag first-author">1st Author</div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-meta-row">MUJUMDAR R, CHEUNG M, KADAM SP, DUTTA A · SPRINGER ICNR · 2022</div>
+        <p class="doc-desc">Proof-of-concept development of a wearable skin NIRS sensor to monitor muscle activation, with applications in peripheral arterial disease monitoring.</p>
+        <div class="doc-links">
+          <a href="https://link.springer.com/chapter/10.1007/978-3-030-70316-5_66" target="_blank">View on SpringerLink →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div class="doc-header">
+        <div class="doc-title">PCA-Based Fetal ECG Extraction: Technical White Paper</div>
+        <div class="doc-tag first-author">1st Author</div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-meta-row">MUJUMDAR R, ET AL. · CARENX INNOVATIONS · 2019</div>
+        <p class="doc-desc">Documents a single-electrode fetal ECG extraction algorithm using principal component analysis, validated on PhysioNet benchmark data, with clinical rationale for non-invasive maternal monitoring devices.</p>
+        <div class="doc-links">
+          <a href="https://carenx.com/assets/publictions/PCA.pdf" target="_blank">View white paper →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div class="doc-header">
+        <div class="doc-title">Wearable NIR Spectroscopy Sensor — Conference Poster</div>
+        <div class="doc-tag first-author">1st Author</div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-meta-row">MUJUMDAR R, ET AL. · ICNR 2020</div>
+        <p class="doc-desc">Poster presentation of early-stage sensor design and proof-of-concept results.</p>
+        <div class="doc-links">
+          <a href="#">View poster →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div class="doc-header">
+        <div class="doc-title">EMG-Based Wearable for Post-Stroke Rehabilitation — Conference Poster</div>
+        <div class="doc-tag">Co-Author</div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-meta-row">MUJUMDAR R, STEFANOVIC F · IEEE EMBS · 2016</div>
+        <p class="doc-desc">Poster on EMG signal feature extraction for post-stroke rehabilitation monitoring.</p>
+        <div class="doc-links">
+          <a href="#">View poster →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <dl class="skill-group">
+        <dt>Regulatory Writing</dt>
+        <dd>CSPs · CSRs · ICH-GCP · ICH E6(R2) · ICH E9(R1) Estimands · Evidence Synthesis</dd>
+      </dl>
+      <dl class="skill-group">
+        <dt>Scientific Writing</dt>
+        <dd>Peer-reviewed manuscripts · White papers · Literature review · Conference posters</dd>
+      </dl>
+      <dl class="skill-group">
+        <dt>Technical</dt>
+        <dd>Python (Pandas, NumPy, Scikit-Learn) · SQL · MATLAB · Statistical Analysis</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact">
+    <p>Let's talk — <a href="mailto:radhika.mujumdar1993@gmail.com">radhika.mujumdar1993@gmail.com</a> · <a href="https://linkedin.com/in/radhikamujumdar" target="_blank">LinkedIn</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
