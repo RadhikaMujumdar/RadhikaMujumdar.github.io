@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radhika Mujumdar — Healthcare Data Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:title" content="Radhika Mujumdar — Healthcare Data Analytics">
+<meta property="og:description" content="Healthcare data analysis projects featuring CMS Medicare claims analysis and FDA FAERS pharmacovigilance safety signal detection.">
+<meta property="og:url" content="https://radhikamujumdar.github.io/data.html">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --navy: #1B2A41;
+    --cream: #FAF8F3;
+    --clay: #B5634A;
+    --sage: #7A8B7F;
+    --ink: #2D2D2D;
+    --line: #DDD7C9;
+    --paper: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  h1, h2, h3 { font-family: 'Source Serif 4', serif; }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ── NAV ── */
+  header {
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 28px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .nav-name {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  nav a:hover { color: var(--clay); }
+
+  @media (max-width: 600px) {
+    nav ul { gap: 14px; }
+    nav a { font-size: 0.78rem; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--navy);
+    max-width: 18ch;
+    margin-bottom: 16px;
+  }
+
+  .hero-bio {
+    font-size: 0.98rem;
+    color: #4a4a4a;
+    max-width: 58ch;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+
+  .meta-item dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sage);
+    margin-bottom: 3px;
+  }
+
+  .meta-item dd {
+    font-size: 0.88rem;
+    color: var(--navy);
+  }
+
+  .meta-item a {
+    color: var(--clay);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+
+  /* ── SECTION ── */
+  section {
+    padding: 52px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sec-head {
+    margin-bottom: 8px;
+  }
+
+  .sec-head h2 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .sec-intro {
+    margin: 10px 0 28px;
+    max-width: 58ch;
+    color: #4a4a4a;
+    font-size: 0.96rem;
+  }
+
+  /* ── PROJECT CARD ── */
+  .project {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
+
+  .project-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .project-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .project-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border: 1px solid var(--clay);
+    color: var(--clay);
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  .project-body {
+    padding: 20px 24px 24px;
+  }
+
+  .project-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--sage);
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+  }
+
+  .project-desc {
+    font-size: 0.94rem;
+    color: var(--ink);
+    margin-bottom: 16px;
+    max-width: 64ch;
+    line-height: 1.65;
+  }
+
+  /* ── FINDINGS ── */
+  .findings {
+    background: #F4F0E6;
+    border-left: 2px solid var(--clay);
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+
+  .findings-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    margin-bottom: 8px;
+  }
+
+  .findings ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .findings ul li {
+    font-size: 0.88rem;
+    color: var(--ink);
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .findings ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--clay);
+    font-size: 0.8rem;
+  }
+
+  /* ── TOOLS ── */
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .tool-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  /* ── LINKS ── */
+  .project-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .project-links a {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--navy);
+    padding-bottom: 1px;
+  }
+
+  .project-links a:hover {
+    color: var(--clay);
+    border-color: var(--clay);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+
+  .skill-group dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    margin-bottom: 8px;
+  }
+
+  .skill-group dd {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 0 52px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+    color: var(--sage);
+  }
+
+  footer a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  footer a:hover { color: var(--clay); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-name">R. Mujumdar</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Writing Portfolio</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom: none;">
+    <div class="hero-label">Healthcare Data Analytics</div>
+    <h1>Radhika Mujumdar</h1>
+    <p class="hero-bio">Biomedical engineer with hands-on experience in healthcare data analysis, signal processing research, and pharmacovigilance methodology. I apply Python, SQL, and statistical analysis to healthcare datasets — bridging biomedical research and clinical data insights. This page showcases my independent data analysis projects.</p>
+
+    <dl class="hero-meta">
+      <div class="meta-item">
+        <dt>Background</dt>
+        <dd>M.S. Biomedical Engineering, SUNY Buffalo</dd>
+      </div>
+      <div class="meta-item">
+        <dt>Focus</dt>
+        <dd>Healthcare Claims · Pharmacovigilance · Signal Processing</dd>
+      </div>
+      <div class="meta-item">
+        <dt>GitHub</dt>
+        <dd><a href="https://github.com/RadhikaMujumdar" target="_blank">github.com/RadhikaMujumdar</a></dd>
+      </div>
+      <div class="meta-item">
+        <dt>Writing Portfolio</dt>
+        <dd><a href="index.html">radhikamujumdar.github.io</a></dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-head">
+      <h2>Data Analysis Projects</h2>
+    </div>
+    <p class="sec-intro">Independent projects applying SQL, Python, and healthcare domain knowledge to real-world analytical questions in claims data and pharmacovigilance.</p>
+
+    <!-- Project 1: Medicare Claims -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">CMS Medicare Healthcare Claims Analysis</div>
+        <div class="project-tag">SQL · Python · BI</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">SYNTHETIC CMS MEDICARE-STYLE DATA · 1,000 RECORDS · 50 PROVIDERS · 2021–2023</div>
+        <p class="project-desc">End-to-end analysis of CMS Medicare-style claims data examining 30-day readmission rates, cost drivers by diagnosis category, provider type performance, and year-over-year payment trends. Includes Power BI and Tableau-ready exports.</p>
+
+        <div class="findings">
+          <div class="findings-label">Key Findings</div>
+          <ul>
+            <li>Ohio had the highest 30-day readmission rate at 14.1% — 1.6 points above the national mean</li>
+            <li>Cardiovascular was the highest-cost diagnosis at ~$68K avg billed, with a significant Medicare reimbursement gap</li>
+            <li>Specialty hospitals had the highest readmission rate (13.2%); Critical Access the lowest (12.2%)</li>
+            <li>85+ patients showed the highest readmission vulnerability across all age groups</li>
+          </ul>
+        </div>
+
+        <div class="tools">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">SQLite</span>
+          <span class="tool-tag">Pandas</span>
+          <span class="tool-tag">Matplotlib</span>
+          <span class="tool-tag">Seaborn</span>
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">Tableau</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/RadhikaMujumdar/healthcare-claims-analysis" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: FAERS -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">FDA FAERS Adverse Event Safety Signal Analysis</div>
+        <div class="project-tag">Pharmacovigilance · PRR</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">SYNTHETIC FDA FAERS-STYLE DATA · 2,000 REPORTS · 4 DRUG CLASSES · PRR METHODOLOGY</div>
+        <p class="project-desc">Pharmacovigilance analysis of FAERS-style adverse event data using Proportional Reporting Ratio (PRR) disproportionality methodology to detect Pneumonitis safety signals in oncology drugs. Stratified serious AE rates by drug class, age group, sex, and year.</p>
+
+        <div class="findings">
+          <div class="findings-label">Key Findings</div>
+          <ul>
+            <li>Oncology had the highest serious AE rate at ~51% — significantly above all other drug classes</li>
+            <li>Pneumonitis safety signal detected in oncology drug class (PRR range 1.6–2.9); 3 of 4 oncology drugs exceeded PRR ≥ 2.0 threshold</li>
+            <li>75+ age group showed the highest serious AE vulnerability across both sexes</li>
+            <li>Oncology serious AE rates remained consistently elevated across all reporting years (2021–2023)</li>
+          </ul>
+        </div>
+
+        <div class="tools">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">SQLite</span>
+          <span class="tool-tag">Pandas</span>
+          <span class="tool-tag">Matplotlib</span>
+          <span class="tool-tag">Seaborn</span>
+          <span class="tool-tag">PRR Analysis</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/RadhikaMujumdar/faers-safety-signal-analysis" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head">
+      <h2>Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <dl class="skill-group">
+        <dt>Programming</dt>
+        <dd>Python (Pandas, NumPy, Matplotlib, Scikit-Learn) · SQL · MATLAB</dd>
+      </dl>
+      <dl class="skill-group">
+        <dt>Analytics</dt>
+        <dd>Statistical analysis · PRR · Signal detection · Data visualization · PCA · ICA · SVM</dd>
+      </dl>
+      <dl class="skill-group">
+        <dt>Healthcare</dt>
+        <dd>CMS Medicare claims · FDA FAERS · Pharmacovigilance · Signal processing · Clinical data analysis</dd>
+      </dl>
+      <dl class="skill-group">
+        <dt>Tools</dt>
+        <dd>Power BI · Tableau · Git · MS Excel · SQLite</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>
+      <a href="index.html">Writing Portfolio</a> ·
+      <a href="mailto:radhika.mujumdar1993@gmail.com">radhika.mujumdar1993@gmail.com</a> ·
+      <a href="https://linkedin.com/in/radhikamujumdar" target="_blank">LinkedIn</a> ·
+      <a href="https://github.com/RadhikaMujumdar" target="_blank">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
