@@ -88,7 +88,7 @@
 
   /* ── HERO ── */
   .hero {
-    padding: 64px 0 48px;
+    padding: 64px 0 24px;
     border-bottom: 1px solid var(--line);
   }
 
@@ -125,13 +125,20 @@
     line-height: 1.7;
   }
 
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+.hero-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
     border-top: 1px solid var(--line);
     padding-top: 24px;
-  }
+}
+
+.meta-row-2 {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
 
   .meta-item dt {
     font-family: 'JetBrains Mono', monospace;
@@ -374,30 +381,30 @@
 
     <p class="hero-bio">Biomedical engineer with hands-on experience in healthcare data analysis, biosignal processing, and research. I apply Python, SQL, and statistical analysis to healthcare datasets, bridging biomedical research and clinical data insights. This page showcases my independent data analysis projects.</p>
 
-    <dl class="hero-meta">
-      <div class="meta-item">
-        <dt>Background</dt>
-        <dd>M.S. Biomedical Engineering, SUNY Buffalo</dd>
-      </div>
-      <div class="meta-item">
-  <dt>Email</dt>
-  <dd><a href="mailto:radhika.mujumdar1993@gmail.com">radhika.mujumdar1993@gmail.com</a></dd>
-</div>
-      <div class="meta-item">
-        <dt>Focus</dt>
-        <dd>Healthcare Analytics | Statistical Modeling | Signal Processing</dd>
-      </div>
-      <div class="meta-item">
-        <dt>GitHub</dt>
-        <dd><a href="https://github.com/RadhikaMujumdar" target="_blank">github.com/RadhikaMujumdar</a></dd>
-      </div>
-      <div class="meta-item">
-        <dt>Writing Portfolio</dt>
-        <dd><a href="index.html">radhikamujumdar.github.io</a></dd>
-      </div>
-    </dl>
-  </section>
-
+   <dl class="hero-meta">
+  <div class="meta-item">
+    <dt>Background</dt>
+    <dd>M.S. Biomedical Engineering, SUNY Buffalo</dd>
+  </div>
+  <div class="meta-item">
+    <dt>Focus Areas</dt>
+    <dd>Healthcare Analytics | Statistical Modeling | Signal Processing</dd>
+  </div>
+  <div class="meta-row-2">
+    <div class="meta-item">
+      <dt>Email</dt>
+      <dd><a href="mailto:radhika.mujumdar1993@gmail.com">radhika.mujumdar1993@gmail.com</a></dd>
+    </div>
+    <div class="meta-item">
+      <dt>LinkedIn</dt>
+      <dd><a href="https://linkedin.com/in/radhikamujumdar" target="_blank">linkedin.com/in/radhikamujumdar</a></dd>
+    </div>
+    <div class="meta-item">
+      <dt>Writing Portfolio</dt>
+      <dd><a href="index.html">radhikamujumdar.github.io</a></dd>
+    </div>
+  </div>
+</dl>
   <!-- PROJECTS -->
   <section id="projects">
     <div class="sec-head">
